@@ -105,9 +105,9 @@ def startdemo():
     time_cnt=0
     
     video_writer = cv2.VideoWriter(outfile,
-                    -1,#cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'),
+                    cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'),
                     fps,
-                    (screen[0],screen[1]))
+                    (screen[1],screen[0]))
     
     while(time_cnt<time_all):
         print "schedule:",int(100*time_cnt/time_all),'%'
@@ -125,7 +125,7 @@ def startdemo():
             
         #kep[:,:,0],kep[:,:,2]=kep[:,:,2],kep[:,:,0]
         #print kep
-        video_writer.write(kep)
+        print video_writer.write(kep)
         cv2.imshow('test',kep)
         cv2.waitKey(1) #int(1/fps*1000)
     
