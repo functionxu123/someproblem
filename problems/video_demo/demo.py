@@ -13,7 +13,7 @@ from random import randint
 screen=[720,1024,3]
 #screen_border=100#the video generate area
 
-round_r=200
+round_r=150
 
 video_initlen=100#the video's length and width at it's just appeared
 video_endlen=20#the video's... when it's move at end
@@ -28,8 +28,8 @@ random.shuffle(paths)
 video_cnt=len(paths)
 video_per=1#how many video appear per time
 
-time_move_all=1.5
-time_all=10.0#all time from start to end
+time_move_all=3.0
+time_all=18.0#all time from start to end
 time_generate_gap=(time_all-time_move_all-0.1)/video_cnt/video_per#
 fps=60.0
 
@@ -50,7 +50,7 @@ class VideoMove(object):
         if tep==0: 
             self.sty=video_initlen/2.0
 
-        elif tep==1:self.stx=screen[1]-video_initlen/2.0
+        elif tep==1: self.stx=screen[1]-video_initlen/2.0
         elif tep==2: self.sty=screen[0]-video_initlen/2.0
         else: self.stx=video_initlen/2.0
         
