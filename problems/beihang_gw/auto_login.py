@@ -98,7 +98,8 @@ if __name__ == '__main__':
         
         TIMESTAMP = "{0:%Y-%m-%d_%H-%M-%S}".format(datetime.now())
         print (TIMESTAMP+"  result:"+resu+'\n')
-        time.sleep(60*60*2)
+        if (resu.split(',')[0].strip()=="login_ok"):        time.sleep(60*60*2)
+        else: time.sleep(5)
     
     
     
