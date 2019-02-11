@@ -97,7 +97,7 @@ if __name__ == '__main__':
         resu=send_post(username, passwd)
         
         TIMESTAMP = "{0:%Y-%m-%d_%H-%M-%S}".format(datetime.now())
-        print (TIMESTAMP+"  result:"+resu+'\n')
+        print (TIMESTAMP+"-->"+resu+'\n')
         if (resu.split(',')[0].strip()=="login_ok"):        time.sleep(60*60*2)
         else: time.sleep(5)
     
