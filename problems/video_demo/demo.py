@@ -126,7 +126,7 @@ def startdemo():
         #kep[:,:,0],kep[:,:,2]=kep[:,:,2],kep[:,:,0]
         #print kep
         print video_writer.write(kep)
-        cv2.imshow('test',kep)
+        cv2.imshow('tools',kep)
         cv2.waitKey(1) #int(1/fps*1000)
     
     video_writer.release()
