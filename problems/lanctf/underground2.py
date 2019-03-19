@@ -17,9 +17,9 @@ strang_sig=b'5b8f99d780ec542da912a5a5cf2bc341'
 
 
 cookies={"auth": 'username=test&role=user'+'\x80'+'\x00'*25+'\x17'+'\x00'*7,#\role=admin&
-         "sig": '\x51\xc5\x41\xa5\xa6\xa1\x7b\x50\xf2\x5a\xde\x01\x92\xa3\x3d\xfe'}
+         "sig": b'51c541a5a6a17b50f25ade0192a33dfe'}
 print (cookies)
-print ((cookies['auth'][24]))
+
 
 s=requests.session()
 
