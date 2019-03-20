@@ -11,8 +11,8 @@ import base64
 import libnum
 
 BLOCK_SIZE = 32
-#p = remote("101.201.66.182",1341)
-p = remote("127.0.0.1",1341)
+p = remote("101.201.66.182",1341)
+#p = remote("127.0.0.1",1341)
 
 def xor(number):
     p.sendafter("you can choose what you want here\n","xor")
@@ -40,15 +40,28 @@ def xor_add_oracle():
     """
     your code here to judge the amazing key
     """
-    
-    for  i in range(32):
+    str=''
+    for  i in range(32*8):
         num=2**i
-        
+        print i,'-->',num,'hex repentation:',hex(num)
+        if xor(num)==add(num):
+            str+='0'
+        else: str+='1'
+    
+    str=str[::-1]
+    #str[0]='1'
+    print len(str),str
+    resu= int(str,2)
+    print hex(resu)
+    
+    print guess_key(hex(resu))
+    
+    str='1'+str[1:]
+    resu= int(str,2)
+    print guess_key(hex(resu))
+    
     
 
-    
-    
+xor_add_oracle()
 
-flag = xor_add_oracle()
-print flag
 p.close()
