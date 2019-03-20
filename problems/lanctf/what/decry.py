@@ -26,7 +26,9 @@ with open('./info.txt','r') as f:
         info.append(tt)
 
 
-
+print len(info)
 for i in info: print len(i),i
+
+#bitdiff(a, b)
 
 
