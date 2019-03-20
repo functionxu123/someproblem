@@ -46,12 +46,13 @@ def admin_page():
         resp.delete_cookie("sig") 
         return resp 
         
-        
+    print('passed')
     cookie_params = {} 
     for p in auth_cookie.split(b"&"): 
+        print (p)
         key, val = p.split(b"=") 
         cookie_params[key] = val
-    print('passed')
+    
     if cookie_params.get(b"role") == b"admin": 
         return 'FLAG_VALUE' 
     else: 
@@ -60,11 +61,13 @@ def admin_page():
 def make_signature(value): 
     temp = SECRET + value 
     print ('make sig:',len(temp), temp)
-    return hashlib.md5(temp).hexdigest().encode()
+    temp=hashlib.md5(temp).hexdigest().encode()
+    print (temp)
+    return temp
 
 
 if __name__ == '__main__':
-    print (make_signature(b'username=test&role=user'))
+    make_signature(b'username=test&role=user')
     app.run('127.0.0.1', 8012, True)              #启动socket
     
     
