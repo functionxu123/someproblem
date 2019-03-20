@@ -18,7 +18,7 @@ def generate():
 
 def get_binlist(x):
     res = []
-    info = bin(x)[2:].strip("L").rjust(bits_length,"0")
+    info = bin(x)[2:].strip("L").rjust(bits_length,"0")  #256bit
     for i in range(len(info)):
         if info[i] == "0":
             res.append(0)
@@ -36,7 +36,7 @@ def encrypt(info_list):
     flag_backup = libnum.s2n(flag)
     enc_flag_binlist = []
     for i in range(bits_length):
-        info = info_list[i]
+        info = info_list[i]  #256bit
         flag_temp = flag_backup
         res = 0
         # this is the first step
@@ -52,9 +52,13 @@ def encrypt(info_list):
         while res != 0:
             enc_flag += res & 1
             res = res >> 1
+            
+        #enc_flag cnt of 1 in res
+        
         # this is not end >:<
         enc_flag = enc_flag & 1
         # what is this
+        #奇数:1  偶数:0
         enc_flag_binlist.append(enc_flag)
     return binlist_number(enc_flag_binlist)
 
@@ -67,3 +71,7 @@ for x in info_list:
     result.write(hex(x)[2:-1] + "\n")
 result.write("\n\n")
 result.write(hex(encryption)[2:-1])
+
+
+
+
