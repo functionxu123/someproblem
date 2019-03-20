@@ -16,7 +16,7 @@ print len(resu_bits)
 print resu_bits
 
 info=[]
-with open('/home/sherl/Downloads/ctf/web/whatisthat/info.txt','r') as f:
+with open('./info.txt','r') as f:
     for i in f.readlines():
         tep=i.strip()
         
