@@ -45,21 +45,30 @@ def xor_add_oracle():
         num=2**i
         print i,'-->',num,'hex repentation:',hex(num)
         if xor(num)==add(num):
-            str+='0'
-        else: str+='1'
+            str='0'+str
+        else: str='1'+str
     
-    str=str[::-1]
-    #str[0]='1'
     print len(str),str
-    resu= int(str,2)
-    print hex(resu)
+    resu= int(str, 2)
     
-    print guess_key(hex(resu))
+    print resu
+    print 'result1:',hex(resu)
+    resu=hex(resu)[2:].decode('hex')
     
+    
+    
+    print type(resu),resu
+    print guess_key( resu )
+    
+    
+    '''
     str='1'+str[1:]
     resu= int(str,2)
-    print guess_key(hex(resu))
+    print 'result2:',hex(resu) 
     
+    resu= bytes(resu)
+    print guess_key(resu)
+    '''
     
 
 xor_add_oracle()

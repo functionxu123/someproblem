@@ -58,7 +58,7 @@ def recv_int(s):
 def main(s):
     try:
         KEY = generate()
-        print 'generate key:',KEY,KEY.encode("hex"), len(KEY.encode("hex"))   #libnum.s2n('ab') = ord('a')*256+ord('b')
+        print 'generate key:',KEY,'\n',KEY.encode("hex"), len(KEY.encode("hex"))   #libnum.s2n('ab') = ord('a')*256+ord('b')
         try_times = 2
         s.sendall("Welcome to Lanctf !!!\n")
         s.sendall("There is some magic in the Math world !!!\n")
@@ -88,6 +88,11 @@ def main(s):
                     break
                 s.sendall("you got a magic\n")
                 m = recv_exact(s, BLOCK_SIZE)
+                
+                print 'recv m:',m
+                print 'xompare:',str(m),'to\n', KEY
+                
+                
                 if str(m) == KEY:
                     s.sendall("OH!How do you get it\n")
                     s.sendall('FLAG')
